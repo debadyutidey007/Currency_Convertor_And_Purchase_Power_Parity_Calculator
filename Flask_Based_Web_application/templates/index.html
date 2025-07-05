@@ -1,0 +1,439 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold text-primary mb-4">
+                    Professional Currency Converter
+                </h1>
+                <p class="lead text-muted mb-4">
+                    Get real-time exchange rates and purchasing power parity calculations with our professional-grade
+                    financial tool.
+                </p>
+                <div class="hero-stats">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <h3 class="stat-number">{{ currencies|length }}</h3>
+                                <p class="stat-label">Currencies</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <h3 class="stat-number">{{ countries|length }}</h3>
+                                <p class="stat-label">Countries</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <h3 class="stat-number">24/7</h3>
+                                <p class="stat-label">Live Data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <i class="fas fa-chart-line hero-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Currency Converter Section -->
+<section id="converter" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="section-header text-center mb-5">
+                    <h2 class="section-title">
+                        <i class="fas fa-exchange-alt me-2"></i>
+                        Currency Converter
+                    </h2>
+                    <p class="section-subtitle">Convert between any two currencies with real-time exchange rates</p>
+                </div>
+
+                <div class="card converter-card">
+                    <div class="card-body p-4">
+                        <form id="converterForm">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label fw-semibold">From Currency</label>
+                                        <select class="form-select form-select-lg" id="fromCurrency" required>
+                                            <option value="">Select currency...</option>
+                                            {% for currency in currencies %}
+                                            <option value="{{ currency.code }}" {% if currency.code=='USD' %}selected{%
+                                                endif %}>
+                                                {{ currency.code }} - {{ currency.name }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-semibold">Amount</label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text" id="fromSymbol">$</span>
+                                            <input type="number" class="form-control" id="amount"
+                                                placeholder="Enter amount" value="1" min="0" step="0.01" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                    <button type="button" class="btn btn-outline-primary btn-lg rounded-circle swap-btn"
+                                        id="swapCurrencies">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="form-label fw-semibold">To Currency</label>
+                                        <select class="form-select form-select-lg" id="toCurrency" required>
+                                            <option value="">Select currency...</option>
+                                            {% for currency in currencies %}
+                                            <option value="{{ currency.code }}" {% if currency.code=='EUR' %}selected{%
+                                                endif %}>
+                                                {{ currency.code }} - {{ currency.name }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-semibold">Result</label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text" id="toSymbol">€</span>
+                                            <input type="text" class="form-control result-input" id="result"
+                                                placeholder="Converted amount" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5">
+                                        <i class="fas fa-calculator me-2"></i>
+                                        Convert Currency
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="conversion-info mt-4" id="conversionInfo" style="display: none;">
+                            <div class="alert alert-info">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <strong>Exchange Rate:</strong> <span id="exchangeRate">-</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong>Last Updated:</strong> <span id="lastUpdatedTime">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PPP Calculator Section -->
+<section id="ppp" class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="section-header text-center mb-5">
+                    <h2 class="section-title">
+                        <i class="fas fa-chart-line me-2"></i>
+                        PPP Calculator
+                    </h2>
+                    <p class="section-subtitle">Calculate purchasing power parity and equivalent income between
+                        countries</p>
+                </div>
+
+                <div class="card ppp-card">
+                    <div class="card-body p-4">
+                        <form id="pppForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label fw-semibold">From Country</label>
+                                        <select class="form-select form-select-lg" id="fromCountry" required>
+                                            <option value="">Select country...</option>
+                                            {% for country in countries %}
+                                            <option value="{{ country.code }}" {% if country.code=='US' %}selected{%
+                                                endif %}>
+                                                {{ country.name }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-semibold">Income (Monthly)</label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="income"
+                                                placeholder="Enter income" value="5000" min="0" step="0.01" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label fw-semibold">To Country</label>
+                                        <select class="form-select form-select-lg" id="toCountry" required>
+                                            <option value="">Select country...</option>
+                                            {% for country in countries %}
+                                            <option value="{{ country.code }}" {% if country.code=='IN' %}selected{%
+                                                endif %}>
+                                                {{ country.name }}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="form-label fw-semibold">Equivalent Income</label>
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control result-input" id="equivalentIncome"
+                                                placeholder="Equivalent income" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-success btn-lg px-5">
+                                        <i class="fas fa-chart-line me-2"></i>
+                                        Calculate PPP
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="ppp-results mt-4" id="pppResults" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="ppp-stat-card">
+                                        <div class="ppp-stat-icon">
+                                            <i class="fas fa-percentage"></i>
+                                        </div>
+                                        <div class="ppp-stat-content">
+                                            <h4 id="pppRate">-</h4>
+                                            <p>PPP Rate</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="ppp-stat-card">
+                                        <div class="ppp-stat-icon">
+                                            <i class="fas fa-hamburger"></i>
+                                        </div>
+                                        <div class="ppp-stat-content">
+                                            <h4 id="bigMacIndex">-</h4>
+                                            <p>Big Mac Index</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="ppp-stat-card">
+                                        <div class="ppp-stat-icon">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="ppp-stat-content">
+                                            <h4 id="costOfLiving">-</h4>
+                                            <p>Cost of Living</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- History Section -->
+<section id="history" class="section">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">
+                <i class="fas fa-history me-2"></i>
+                Transaction History
+            </h2>
+            <p class="section-subtitle">View your recent conversions and PPP calculations</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- History Navigation -->
+                <ul class="nav nav-tabs nav-justified mb-4" id="historyTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="conversion-tab" data-bs-toggle="tab"
+                            data-bs-target="#conversion-history" type="button" role="tab">
+                            <i class="fas fa-exchange-alt me-2"></i>
+                            Conversion History
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="ppp-tab" data-bs-toggle="tab" data-bs-target="#ppp-history"
+                            type="button" role="tab">
+                            <i class="fas fa-chart-line me-2"></i>
+                            PPP History
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- History Content -->
+                <div class="tab-content" id="historyTabsContent">
+                    <div class="tab-pane fade show active" id="conversion-history" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Recent Conversions</h5>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary btn-sm" id="exportConversions">
+                                        <i class="fas fa-download me-1"></i>
+                                        Export CSV
+                                    </button>
+                                    <button class="btn btn-outline-danger btn-sm" id="deleteConversions">
+                                        <i class="fas fa-trash me-1"></i>
+                                        Delete History
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>From</th>
+                                                <th>To</th>
+                                                <th>Amount</th>
+                                                <th>Result</th>
+                                                <th>Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="conversionHistoryBody">
+                                            <tr>
+                                                <td colspan="6" class="text-center text-muted">
+                                                    <i class="fas fa-spinner fa-spin me-2"></i>
+                                                    Loading history...
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="ppp-history" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Recent PPP Calculations</h5>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-primary btn-sm" id="exportPPP">
+                                        <i class="fas fa-download me-1"></i>
+                                        Export CSV
+                                    </button>
+                                    <button class="btn btn-outline-danger btn-sm" id="deletePPP">
+                                        <i class="fas fa-trash me-1"></i>
+                                        Delete History
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>From Country</th>
+                                                <th>To Country</th>
+                                                <th>Income</th>
+                                                <th>Equivalent</th>
+                                                <th>PPP Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="pppHistoryBody">
+                                            <tr>
+                                                <td colspan="6" class="text-center text-muted">
+                                                    <i class="fas fa-spinner fa-spin me-2"></i>
+                                                    Loading history...
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Analytics Section -->
+<section id="analytics" class="section bg-light">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">
+                <i class="fas fa-chart-bar me-2"></i>
+                Analytics Dashboard
+            </h2>
+            <p class="section-subtitle">Visual insights into your currency conversion patterns</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-chart-line me-2"></i>
+                            Conversion Trends
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="conversionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-chart-pie me-2"></i>
+                            PPP Calculations
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="pppChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+{% endblock %}
