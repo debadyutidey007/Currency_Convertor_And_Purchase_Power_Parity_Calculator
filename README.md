@@ -98,7 +98,7 @@ If you're a developer, prefer to run the application from its source, or wish to
 
 The Purchasing Power Parity (PPP) calculation is a fundamental economic concept that allows for a more accurate comparison of living standards and purchasing power between different countries, bypassing misleading market exchange rate fluctuations. The application utilizes the following core formula for its PPP analysis:
 
-$$ \text{Equivalent Cost} = \text{Amount}_{\text{base}} \times \left( \frac{\text{PPP Index}_{\text{target}}}{\text{PPP Index}_{\text{base}}} \right) $$
+\text{Equivalent Cost} = \text{Amount}{\text{base}} \times \left( \frac{\text{PPP Index}{\text{target}}}{\text{PPP Index}_{\text{base}}} \right)
 
 **Explanation:**
 * $\textbf{Amount}_{\textbf{base}}$: The original monetary amount in the starting (base) currency.
