@@ -98,14 +98,12 @@ If you're a developer, prefer to run the application from its source, or wish to
 
 The Purchasing Power Parity (PPP) calculation is a fundamental economic concept that allows for a more accurate comparison of living standards and purchasing power between different countries, bypassing misleading market exchange rate fluctuations. The application utilizes the following core formula for its PPP analysis:
 
-<p align="center">
-  <img src="C:\Users\debad\Desktop\Currency_Converter_And_Purchase_Power_Parity_Calculator\PPP_Equation.png" alt="Purchasing Power Parity Formula"/>
-</p>
+$\text{Equivalent Cost} = \text{Amount}_{\text{base}} \times \left( \frac{\text{PPP Index}_{\text{target}}}{\text{PPP Index}_{\text{base}}} \right) $
 
 **Explanation:**
-* **Amount$_{\text{base}}$**: The original monetary amount in the starting (base) currency.
-* **PPP Index$_{\text{target}}$**: The Purchasing Power Parity index for the target country. This index reflects the general price level of a "basket of goods" in that country relative to a reference (often the US dollar or a global average).
-* **PPP Index$_{\text{base}}$**: The Purchasing Power Parity index for the base country.
+* $\textbf{Amount}_{\textbf{base}}$: The original monetary amount in the starting (base) currency.
+* $\textbf{PPP Index}_{\textbf{target}}$: The Purchasing Power Parity index for the target country. This index reflects the general price level of a "basket of goods" in that country relative to a reference (often the US dollar or a global average).
+* $\textbf{PPP Index}_{\textbf{base}}$: The Purchasing Power Parity index for the base country.
 
 By applying this formula, the calculator estimates the amount in the target currency that would be required to purchase the same "basket of goods and services" as the initial amount in the base currency, thereby offering a more realistic measure of comparative value.
 
