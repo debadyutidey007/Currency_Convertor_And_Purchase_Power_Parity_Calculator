@@ -68,7 +68,7 @@ If you're a developer, prefer to run the application from its source, or wish to
 1.  **Prerequisites**: Ensure you have **[Python 3.x](https://www.python.org/downloads/)** installed on your system. Python 3.8 or newer is recommended for optimal compatibility.
 2.  **Clone the Repository**: Open your terminal or command prompt and execute the following commands to clone the project:
     ```bash
-    git clone [https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator.git](https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator.git)
+    git clone https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator.git
     cd Currency_Convertor_And_Purchase_Power_Parity_Calculator
     ```
 3.  **Set Up a Virtual Environment** (Highly Recommended): Creating a virtual environment isolates project dependencies, preventing conflicts with other Python projects.
