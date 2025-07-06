@@ -7,10 +7,9 @@
 [![GitHub forks](https://img.shields.io/github/forks/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator.svg?style=social)](https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/network/members)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Repo Size](https://img.shields.io/github/repo-size/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator)](https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator)
+</div>
 
 A modern, intuitive desktop utility for real-time currency conversion and insightful Purchasing Power Parity (PPP) analysis, designed for economic understanding and practical application.
-
-</div>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/71a6e70b-d2d7-4660-848e-f6362f6b8c9d" alt="Application Screenshot" width="700"/>
