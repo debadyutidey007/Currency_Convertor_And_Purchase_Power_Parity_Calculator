@@ -11,7 +11,7 @@
 </div>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/71a6e70b-d2d7-4660-848e-f6362f6b8c9d" alt="Application Screenshot" width="700"/>
+  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/PPP_Equation.png" alt="Application Screenshot" width="700"/>
 </p>
 
 ---
