@@ -86,27 +86,34 @@ If you're a developer, prefer to run the application from its source, or wish to
 
 1.  *Prerequisites*: Ensure you have [Python 3.x](https://www.python.org/downloads/) installed on your system. Python 3.8 or newer is recommended for optimal compatibility.
 2.  *Clone the Repository*: Open your terminal or command prompt and execute the following commands:
-    bash
-    git clone [https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator.git](https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator.git)
+    ```powershell/cmd
+    git clone https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator.git
     cd Currency_Convertor_And_Purchase_Power_Parity_Calculator
+    ```
     
 3.  *Set Up a Virtual Environment (Highly Recommended)*: Creating a virtual environment isolates project dependencies, preventing conflicts with other Python projects.
-    bash
+    
     # For Windows
+    ```powershell/cmd
     python -m venv venv
     venv\Scripts\activate
+    ```
 
     # For macOS/Linux
+    ```powershell/cmd
     python3 -m venv venv
     source venv/bin/activate
-    
+    ```
+
 4.  *Install Dependencies*: With your virtual environment activated, install the required libraries:
-    bash
+    ```powershell/cmd
     pip install customtkinter requests # 'requests' is added based on typical API usage. Add any other specific libraries as needed.
+    ```
     
 5.  *Run the Application*: Finally, execute the main script:
-    bash
+    ```powershell/cmd
     python main.py
+    ```
     
 
 ---
