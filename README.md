@@ -10,11 +10,7 @@
 
 </div>
 
-<<<<<<< HEAD
-**A modern, intuitive desktop utility for real-time currency conversion and insightful Purchasing Power Parity (PPP) analysis, designed for economic understanding and practical application.**
-=======
 A modern, intuitive desktop utility for real-time currency conversion and insightful Purchasing Power Parity (PPP) analysis, designed for economic understanding and practical application.
->>>>>>> e51769567a003a512deabb2406836efc1adb2dfa
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/71a6e70b-d2d7-4660-848e-f6362f6b8c9d" alt="Application Screenshot" width="700"/>
