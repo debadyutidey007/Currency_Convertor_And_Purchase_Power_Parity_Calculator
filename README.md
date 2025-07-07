@@ -145,18 +145,21 @@ If you have an idea for an enhancement or spot an issue, please consider contrib
 
 1.  *Fork the Project*: Click the "Fork" button at the top right of this repository.
 2.  *Create your Feature Branch*:
-    bash
+    ```bash
     git checkout -b feature/AmazingFeature
+    ```
     
     (e.g., feature/add-new-currency-api)
 3.  *Commit your Changes*:
-    bash
+    ```bash
     git commit -m 'feat: Add an Amazing Feature'
-    
+    ```
     (Use descriptive commit messages following conventional commits if possible!)
+
 4.  *Push to the Branch*:
-    bash
+    ```bash
     git push origin feature/AmazingFeature
+    ```
     
 5.  *Open a Pull Request*: Navigate to your forked repository on GitHub and open a Pull Request to the main branch of this original repository. Please ensure your PR includes a clear description of the changes.
 
