@@ -12,8 +12,25 @@
 
 A modern, intuitive desktop utility for real-time currency conversion and insightful Purchasing Power Parity (PPP) analysis, designed for economic understanding and practical application.
 
+<div align="center">
+
+## Tkinter GUI Application Interface Views
+
+</div>
+
+1.  **Tkinter Application History Interface:**
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/71a6e70b-d2d7-4660-848e-f6362f6b8c9d" alt="Application Screenshot" width="700"/>
+  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/GUI_History.png" alt="History GUI Interface" width="700"/>
+</p>
+
+2. **Purchase Power Pairity Calculator GUI Interface:**
+<p align="center">
+  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/Purchase_Power_Parity_Calculator_GUI_Image.png" alt="PPP Calculator Interface" width="700"/>
+</p>
+
+3. **Currency Convertor and Exchange Rate Measurer GUI Interface:**
+<p align="center">
+  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/Currency_Converter_Calculator_GUI_Image.png" alt="Currency Converter GUI Interface" width="700"/>
 </p>
 
 ---
