@@ -20,17 +20,17 @@ A modern, intuitive desktop utility for real-time currency conversion and insigh
 
 1.  **Tkinter Application History Interface:**
 <p align="center">
-  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/GUI_History.png" alt="History GUI Interface" width="700"/>
+  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/Tkinter_GUI_Interface_Images/GUI_History.png" alt="History GUI Interface" width="700"/>
 </p>
 
 2. **Purchase Power Pairity Calculator GUI Interface:**
 <p align="center">
-  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/Purchase_Power_Parity_Calculator_GUI_Image.png" alt="PPP Calculator Interface" width="700"/>
+  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/Tkinter_GUI_Interface_Images/Purchase_Power_Parity_Calculator_GUI_Image.png" alt="PPP Calculator Interface" width="700"/>
 </p>
 
 3. **Currency Convertor and Exchange Rate Measurer GUI Interface:**
 <p align="center">
-  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/Currency_Converter_Calculator_GUI_Image.png" alt="Currency Converter GUI Interface" width="700"/>
+  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/Tkinter_GUI_Interface_Images/Currency_Converter_Calculator_GUI_Image.png" alt="Currency Converter GUI Interface" width="700"/>
 </p>
 
 ---
