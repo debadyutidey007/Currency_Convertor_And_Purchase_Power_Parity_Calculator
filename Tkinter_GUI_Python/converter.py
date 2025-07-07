@@ -582,7 +582,7 @@ class CreateToolTip:
 class CurrencyConverterApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Professional Currency Converter & PPP Calculator")
+        self.root.title("Currency Converter & PPP Calculator")
         self.root.geometry("1000x800")
         self.root.resizable(True, True)
         
@@ -657,7 +657,7 @@ class CurrencyConverterApp:
         header_frame.pack(fill=X, padx=20, pady=10)
         
         main_header = ttk.Label(header_frame, 
-                               text="Professional Currency Converter & PPP Calculator",
+                               text="Currency Converter & PPP Calculator",
                                style="MainHeader.TLabel")
         main_header.pack()
         
