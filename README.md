@@ -158,7 +158,7 @@ The Purchasing Power Parity (PPP) calculation is a fundamental economic concept 
 The application utilizes the following core formula for its PPP analysis:
 
 <p align="center">
-  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/PPP_Equation.png" alt="PPP Equation" width="700"/>
+  <img src="https://github.com/debadyutidey007/Currency_Convertor_And_Purchase_Power_Parity_Calculator/blob/main/Equations/PPP_Equation.png" alt="PPP Equation" width="700"/>
 </p>
 
 *Explanation:*
